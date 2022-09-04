@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_spting-mvc-demo" default="compile.module.spting-mvc-demo">
+  <dirname property="module.spting-mvc-demo.basedir" file="${ant.file.module_spting-mvc-demo}"/>
+  
+  <property name="module.jdk.home.spting-mvc-demo" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.spting-mvc-demo" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.spting-mvc-demo" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.spting-mvc-demo" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="spting-mvc-demo.output.dir" value="${module.spting-mvc-demo.basedir}/out/production/Spting-mvc-demo"/>
+  <property name="spting-mvc-demo.testoutput.dir" value="${module.spting-mvc-demo.basedir}/out/test/Spting-mvc-demo"/>
+  
+  <path id="spting-mvc-demo.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="spting-mvc-demo.module.production.classpath">
+    <path refid="${module.jdk.classpath.spting-mvc-demo}"/>
+    <path refid="library.spring-5.2.3.release.classpath"/>
+    <path refid="library.spring_mvc-5.2.3.release.classpath"/>
+  </path>
+  
+  <path id="spting-mvc-demo.runtime.production.module.classpath">
+    <pathelement location="${spting-mvc-demo.output.dir}"/>
+    <path refid="library.spring-5.2.3.release.classpath"/>
+    <path refid="library.spring_mvc-5.2.3.release.classpath"/>
+  </path>
+  
+  <path id="spting-mvc-demo.module.classpath">
+    <path refid="${module.jdk.classpath.spting-mvc-demo}"/>
+    <pathelement location="${spting-mvc-demo.output.dir}"/>
+    <path refid="library.spring-5.2.3.release.classpath"/>
+    <path refid="library.spring_mvc-5.2.3.release.classpath"/>
+  </path>
+  
+  <path id="spting-mvc-demo.runtime.module.classpath">
+    <pathelement location="${spting-mvc-demo.testoutput.dir}"/>
+    <pathelement location="${spting-mvc-demo.output.dir}"/>
+    <path refid="library.spring-5.2.3.release.classpath"/>
+    <path refid="library.spring_mvc-5.2.3.release.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.spting-mvc-demo">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.spting-mvc-demo">
+    <patternset refid="excluded.from.module.spting-mvc-demo"/>
+  </patternset>
+  
+  <path id="spting-mvc-demo.module.sourcepath">
+    <dirset dir="${module.spting-mvc-demo.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.spting-mvc-demo" depends="compile.module.spting-mvc-demo.production,compile.module.spting-mvc-demo.tests" description="Compile module Spting-mvc-demo"/>
+  
+  <target name="compile.module.spting-mvc-demo.production" depends="register.custom.compilers" description="Compile module Spting-mvc-demo; production classes">
+    <mkdir dir="${spting-mvc-demo.output.dir}"/>
+    <javac2 destdir="${spting-mvc-demo.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spting-mvc-demo}/javac">
+      <compilerarg line="${compiler.args.spting-mvc-demo}"/>
+      <bootclasspath refid="spting-mvc-demo.module.bootclasspath"/>
+      <classpath refid="spting-mvc-demo.module.production.classpath"/>
+      <src refid="spting-mvc-demo.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spting-mvc-demo"/>
+    </javac2>
+    
+    <copy todir="${spting-mvc-demo.output.dir}">
+      <fileset dir="${module.spting-mvc-demo.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.spting-mvc-demo.tests" depends="register.custom.compilers,compile.module.spting-mvc-demo.production" description="compile module Spting-mvc-demo; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.spting-mvc-demo" description="cleanup module">
+    <delete dir="${spting-mvc-demo.output.dir}"/>
+    <delete dir="${spting-mvc-demo.testoutput.dir}"/>
+  </target>
+</project>
