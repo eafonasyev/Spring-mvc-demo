@@ -10,7 +10,9 @@
 <body>
 
 The student is confirmed: ${student.firstName} ${student.lastName}
-
+country ${student.country}
+favoriteLanguage ${student.favoriteLanguage}
+hours ${student.countHours}
 </body>
 
 </html>
