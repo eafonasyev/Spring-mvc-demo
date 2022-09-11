@@ -1,9 +1,13 @@
 package com.eafonasyev.classes;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.LinkedHashMap;
 
 public class Student {
     private String firstName;
+
+    @NotNull
     private String lastName;
     private String country;
     private LinkedHashMap<String,String> countryOptions;

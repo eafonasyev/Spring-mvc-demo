@@ -28,7 +28,6 @@
     <orderEntry type="library" name="Spring MVC-5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="javax.servlet-3.0" level="project" />
     <orderEntry type="library" name="taglibs-standard-compat-1.2.5 (2)" level="project" />
-    <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.22" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.22" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.22" level="project" />
@@ -37,9 +36,10 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.22" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.22" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.22" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:7.0.5.Final" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:7.0.5.Final" level="project" />
+    <orderEntry type="library" name="jstl-1.21" level="project" />
   </component>
 </module>
