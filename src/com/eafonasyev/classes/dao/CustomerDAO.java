@@ -9,7 +9,8 @@ public interface CustomerDAO {
 
     public List<Customer> getCustomers();
 
-    public Customer getCumer();
+    public Customer getCustomer();
 
 
 }
+

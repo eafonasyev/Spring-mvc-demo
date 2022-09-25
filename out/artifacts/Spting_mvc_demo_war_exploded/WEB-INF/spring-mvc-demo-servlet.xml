@@ -45,17 +45,6 @@
 
 	<!-- Step 2: Setup Hibernate session factory -->
 	<!-- Step 2: Setup Hibernate session factory -->
-	<bean id="sessionFactory"
-		  class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="dataSource" ref="myDataSource" />
-		<property name="packagesToScan" value="com.eafonasyev.classes.entety" />
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-			</props>
-		</property>
-	</bean>
 
 	<!-- Step 3: Setup Hibernate transaction manager -->
 	<bean id="myTransactionManager"

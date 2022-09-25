@@ -18,7 +18,6 @@ public class CustomerDAOImpl implements CustomerDAO {
     private SessionFactory sessionFactory;
 
     @Autowired
-    @Transactional
     public List<Customer> getCustomers() {
         //get current session
         Session session = sessionFactory.getCurrentSession();
@@ -30,7 +29,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         return customers;
     }
 
-    public Customer getCumer() {
+    public Customer getCustomer() {
         return null;
     }
 }
