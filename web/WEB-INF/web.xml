@@ -8,6 +8,12 @@
 
 	<absolute-ordering />
 
+	<welcome-file-list>
+		<welcome-file>main-menu.jsp</welcome-file>
+		<welcome-file>main-menu.html</welcome-file>
+	</welcome-file-list>
+
+
 	<!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
