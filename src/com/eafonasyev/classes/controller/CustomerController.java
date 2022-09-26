@@ -8,6 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -28,8 +30,22 @@ public class CustomerController {
         //get customers  from injections
         List<Customer> customers = customerSevice.getCustomers();
         //add to model
-        model.addAttribute("customer",customers);
+        model.addAttribute("customers",customers);
         //return page
-        return "list-cuatomers";
+        return "list-customers";
+    }
+    @RequestMapping("/showFormForAdd")
+    public String showFormForAddr(Model model){
+        Customer customer = new Customer();
+
+        model.addAttribute("customer", customer);
+
+        return "customer-form";
+    }
+    @PostMapping("/saveCustomer")
+    public String saveCustomer(@ModelAttribute("customer") Customer customer){
+        customerSevice.saveCustomer(customer);
+
+        return "redirect:/customers/list";
     }
 }
