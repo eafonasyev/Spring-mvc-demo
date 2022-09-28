@@ -2,23 +2,23 @@ package com.eafonasyev.classes.controller;
 
 import com.eafonasyev.classes.dao.CustomerDAO;
 import com.eafonasyev.classes.entety.Customer;
+import com.eafonasyev.classes.implementation.CustomersServiceImpl;
 import com.eafonasyev.classes.service.CustomerSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.jws.WebParam;
 import java.util.List;
 
 @Controller
+@RequestMapping("/customer")
 public class CustomerController {
      //injection
      @Autowired
-     public CustomerSevice customerSevice;
+     private CustomerSevice customerSevice;
 
     @RequestMapping("/")
     String showPage(){
@@ -46,6 +46,22 @@ public class CustomerController {
     public String saveCustomer(@ModelAttribute("customer") Customer customer){
         customerSevice.saveCustomer(customer);
 
+        return "redirect:/customers/list";
+    }
+
+    @RequestMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("customerId") int theId, Model model){
+        Customer customer = customerSevice.getCustomer(theId);
+        model.addAttribute("customer",customer);
+        return "customer-form";
+
+    }
+
+
+    @PostMapping("/delete")
+    public String deleteCustomer(@ModelAttribute("customer") Customer customer){
+        int id = customer.getId();
+        customerSevice.deleteCustomer(id);
         return "redirect:/customers/list";
     }
 }

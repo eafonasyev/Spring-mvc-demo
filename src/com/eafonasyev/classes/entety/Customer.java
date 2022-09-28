@@ -8,7 +8,7 @@ public class Customer {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "customer_gen",sequenceName = "customer_seq")
-    private long id;
+    private int id;
 
     @Column(name = "FIST_NAME")
     private String fistName;
@@ -20,11 +20,11 @@ public class Customer {
     private String email;
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

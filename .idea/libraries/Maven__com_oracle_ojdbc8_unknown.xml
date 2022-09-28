@@ -1,6 +1,8 @@
 <component name="libraryTable">
   <library name="Maven: com.oracle:ojdbc8:unknown">
-    <CLASSES />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/oracle/ojdbc8/unknown/ojdbc8-unknown.jar!/" />
+    </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/com/oracle/ojdbc8/unknown/ojdbc8-unknown-javadoc.jar!/" />
     </JAVADOC>
